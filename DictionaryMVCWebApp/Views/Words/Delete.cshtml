@@ -1,0 +1,30 @@
+﻿@model DictionaryMVCWebApp.Models.Word
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<div class="container text-center">
+     <h1 class="mt-5">Delete your word here</h1>
+       <h3>Are you sure you want to delete this word?</h3>
+      
+            <hr />
+                <div class="card  text-white bg-dark mb-3" style="max-width: 50rem;">
+                    <div class="card-body ">
+                   
+                        <h5 class="card-text"> @Html.DisplayFor(model => model.Words) </h5>
+                        
+                        <h5 class="card-text"> @Html.DisplayFor(model => model.Definition) </h5>
+
+                        <div class="card-footer">
+                            <form asp-action="Delete">
+                                <input type="hidden" asp-for="Id" />
+                                <input type="submit" value="Delete" class="btn btn-danger" />
+                                <a asp-action="Index" class="btn btn-light">Back to List</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
+</div>

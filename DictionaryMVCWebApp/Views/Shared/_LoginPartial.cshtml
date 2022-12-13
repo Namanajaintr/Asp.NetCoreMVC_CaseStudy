@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+    <div class="ml-3">
+
+        <ul class="navbar-nav ml-3">
+            @if (SignInManager.IsSignedIn(User)) {
+                <li class="nav-item ">
+                    <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello&nbsp;@User.Identity.Name!</a>
+                </li>
+                <li class="nav-item">
+                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button type="submit" class="nav-link btn btn-danger btn-link text-light">Logout</button>
+                    </form>
+                </li>
+            }
+            else {
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary text-light" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-success text-light" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                </li>
+            }
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle text-light" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Languages
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item" type="button">Kannada</button>
+                    <button class="dropdown-item" type="button">English</button>
+                    <button class="dropdown-item" type="button">Hindi</button>
+                </div>
+            </div>
+        </ul>
+    </div>

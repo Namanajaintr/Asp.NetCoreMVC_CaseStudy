@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DictionaryMVCWebApp.Models.Word>
+
+@{
+    ViewData["Title"] = "Dictionary";
+}
+
+
+
+@*<p>
+        <a asp-action="Create">Create New</a>
+    </p>*@
+<div class="container text-center">
+    <h1 class="card-title mt-5"> Know about the English Words</h1>
+
+    <div class=" row row-cols-1 row-cols-md-2 g-4">
+
+        @foreach (var item in Model) {
+       
+            <div class="card word-card col-lg-3 col-md-4 col-sm-12 bg-info mt-3 mb-3 ml-5" style="width: 50rem;">
+
+                <div class="card-body">
+                    <h5 class="card-text">  @Html.DisplayFor(modelItem => item.Words)</h5>
+                </div>
+                <div class="card-footer">
+                    <div>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="card-link btn btn-outline-light">See Definition🗒️</a>
+                    </div>
+                    <hr />
+                    <div>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="card-link btn btn-outline-light">Edit✏️</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="card-link btn btn-outline-light">Delete🗑️</a>
+                    </div>
+                </div>
+            </div>
+        
+         }
+    </div>
+</div>

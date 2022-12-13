@@ -1,0 +1,35 @@
+﻿@model DictionaryMVCWebApp.Models.Word
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container text-center">
+    <h1 class="mt-5">Create your own words</h1>
+    <hr />
+
+        <div class="card  text-white bg-primary mb-3" style="max-width: 50rem;">
+            <form asp-action="Create" class="card-body">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Words" class="control-label"></label>
+                    <input asp-for="Words" class="form-control" />
+                    <span asp-validation-for="Words" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Definition" class="control-label"></label>
+                    <input asp-for="Definition" class="form-control" />
+                    <span asp-validation-for="Definition" class="text-danger"></span>
+                </div>
+                <div class="form-group card-footer">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-light">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

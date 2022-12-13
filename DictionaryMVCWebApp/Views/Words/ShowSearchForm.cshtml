@@ -1,0 +1,26 @@
+﻿
+
+<div class="container text-center">
+    <h1 class="mt-5">Search for a Letter/Word of your choice</h1>
+    <hr />
+        <div class="card text-white bg-secondary mb-3" style="width: 50rem;">
+            <form asp-action="ShowSearchResults">
+
+                <div class="form-group card-body">
+                    <label for="SearchWord" class="control-label">SearchWord</label>
+                    <input name="SearchWord" placeholder="Search here" class="form-control" />
+
+                    <div class="form-group card-footer mt-2">
+                        <input type="submit" OnClick="Button1_Click" value="Search" placeholder="Search here" class="btn btn-primary" />
+                        <a asp-action="Index" class="btn btn-light">Back to List</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

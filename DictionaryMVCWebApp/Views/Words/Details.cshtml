@@ -1,0 +1,26 @@
+﻿@model DictionaryMVCWebApp.Models.Word
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="container text-center">
+   
+        <h1 class="mt-5">Details of your word</h1>
+
+        <div>
+            <hr />
+            <div class="card text-white bg-success mb-3" style="max-width: 50rem;">
+                <div class="card-body ">
+
+                    <h2 class="card-text"> @Html.DisplayFor(model => model.Words) </h2>
+
+                    <h4 class="card-text"> @Html.DisplayFor(model => model.Definition) </h4>
+
+                    <div class="card-footer">
+                        <a asp-action="Index" class="btn btn-light">Like♥️</a>
+                        <a asp-action="Index" class="btn btn-light">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
